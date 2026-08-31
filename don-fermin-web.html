@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Don Fermín — Galletas artesanales para mascotas</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap');
+
+  :root{
+    --charcoal:#241d15;
+    --charcoal-2:#332a1e;
+    --paper:#f2e9d6;
+    --paper-dim:#e5d8bc;
+    --gold:#c69a3e;
+    --gold-dim:#9c7a2f;
+    --rust:#a8432a;
+    --olive:#5c6a41;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    background:var(--charcoal);
+    color:var(--paper);
+    font-family:'Work Sans', sans-serif;
+    line-height:1.55;
+  }
+
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    line-height:1.1;
+  }
+
+  a{color:inherit; text-decoration:none;}
+
+  .wrap{
+    max-width:1080px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* texture */
+  .grain{
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(242,233,214,0.025) 1px, transparent 1px),
+      radial-gradient(circle at 60% 70%, rgba(242,233,214,0.02) 1px, transparent 1px);
+    background-size: 34px 34px, 47px 47px;
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(36,29,21,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(198,154,62,0.25);
+  }
+  nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:72px;
+  }
+  .brandmark{
+    display:flex; align-items:center; gap:12px;
+    font-family:'Fraunces', serif; font-size:1.15rem; font-weight:700;
+    letter-spacing:0.02em;
+    color:var(--paper);
+  }
+  .badge-icon{
+    width:34px; height:34px;
+    clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+    background:var(--gold);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces', serif; color:var(--charcoal); font-weight:700; font-size:0.85rem;
+  }
+  .navlinks{display:flex; gap:30px; font-size:0.92rem;}
+  .navlinks a{opacity:0.85; transition:opacity .2s;}
+  .navlinks a:hover{opacity:1; color:var(--gold);}
+  @media (max-width:720px){ .navlinks{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:100px 0 90px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.1fr 0.8fr;
+    gap:56px;
+    align-items:center;
+  }
+  @media (max-width:860px){ .hero .wrap{grid-template-columns:1fr;} }
+
+  .eyebrow-line{
+    font-size:0.95rem;
+    color:var(--gold);
+    margin-bottom:18px;
+    font-style:italic;
+    font-family:'Fraunces', serif;
+  }
+  .hero h1{
+    font-size:clamp(2.3rem, 5vw, 3.6rem);
+    color:var(--paper);
+    margin-bottom:22px;
+  }
+  .hero p.lead{
+    font-size:1.08rem;
+    color:var(--paper-dim);
+    max-width:46ch;
+    margin-bottom:34px;
+  }
+  .cta-row{display:flex; gap:16px; flex-wrap:wrap;}
+  .btn{
+    display:inline-block;
+    padding:14px 26px;
+    font-size:0.95rem;
+    font-weight:500;
+    border:1px solid var(--gold);
+    transition:all .2s ease;
+  }
+  .btn-solid{background:var(--gold); color:var(--charcoal);}
+  .btn-solid:hover{background:transparent; color:var(--gold);}
+  .btn-line{color:var(--paper); border-color:rgba(242,233,214,0.35);}
+  .btn-line:hover{border-color:var(--gold); color:var(--gold);}
+
+  .hero-badge{
+    aspect-ratio:1;
+    max-width:340px;
+    margin:0 auto;
+    clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+    background:linear-gradient(160deg, var(--paper), var(--paper-dim));
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+    border:3px double var(--charcoal);
+  }
+  .hero-badge-inner{
+    text-align:center;
+    color:var(--charcoal);
+    padding:20px;
+  }
+  .hero-badge-inner .top{
+    font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase;
+    margin-bottom:10px; font-weight:600; color:var(--rust);
+  }
+  .hero-badge-inner .dog-mark{
+    font-size:3.2rem; margin:6px 0 10px;
+  }
+  .hero-badge-inner .name{
+    font-family:'Fraunces', serif; font-size:1.8rem; font-weight:700;
+  }
+  .hero-badge-inner .bottom{
+    font-size:0.65rem; letter-spacing:0.1em; margin-top:8px; opacity:0.75;
+  }
+
+  /* ---------- INTRO STRIP ---------- */
+  .intro-strip{
+    border-top:1px solid rgba(198,154,62,0.25);
+    border-bottom:1px solid rgba(198,154,62,0.25);
+    padding:44px 0;
+  }
+  .intro-strip .wrap{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:36px;
+  }
+  @media (max-width:720px){ .intro-strip .wrap{grid-template-columns:1fr;} }
+  .intro-item h3{font-size:1.05rem; color:var(--gold); margin-bottom:8px; font-weight:600;}
+  .intro-item p{color:var(--paper-dim); font-size:0.92rem;}
+
+  /* ---------- SECTION HEADERS ---------- */
+  section{padding:88px 0;}
+  .section-head{
+    max-width:56ch;
+    margin-bottom:52px;
+  }
+  .section-head h2{
+    font-size:clamp(1.8rem, 3.4vw, 2.5rem);
+    color:var(--paper);
+    margin-bottom:14px;
+  }
+  .section-head p{color:var(--paper-dim); font-size:1rem;}
+
+  /* ---------- LINES (product families) ---------- */
+  .lines-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
+    gap:2px;
+    background:rgba(198,154,62,0.25);
+    border:1px solid rgba(198,154,62,0.25);
+  }
+  .line-card{
+    background:var(--charcoal-2);
+    padding:32px 26px;
+  }
+  .line-card .tag{
+    font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--gold-dim); margin-bottom:14px; display:block;
+  }
+  .line-card h3{
+    font-size:1.25rem; color:var(--paper); margin-bottom:10px;
+  }
+  .line-card p{
+    font-size:0.9rem; color:var(--paper-dim); margin-bottom:16px;
+  }
+  .line-card .price{
+    font-family:'Fraunces', serif; color:var(--gold); font-size:1.05rem;
+  }
+
+  /* ---------- COMBOS ---------- */
+  .combos-list{display:flex; flex-direction:column;}
+  .combo-row{
+    display:grid;
+    grid-template-columns:auto 1fr auto;
+    gap:28px;
+    align-items:center;
+    padding:26px 0;
+    border-bottom:1px solid rgba(198,154,62,0.2);
+  }
+  @media (max-width:680px){
+    .combo-row{grid-template-columns:1fr; text-align:left;}
+  }
+  .combo-row:first-child{border-top:1px solid rgba(198,154,62,0.2);}
+  .combo-icon{
+    width:52px; height:52px;
+    clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+    background:var(--rust);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--paper); font-family:'Fraunces', serif; font-weight:700;
+  }
+  .combo-info h3{font-size:1.15rem; color:var(--paper); margin-bottom:6px;}
+  .combo-info p{font-size:0.88rem; color:var(--paper-dim);}
+  .combo-price{text-align:right; white-space:nowrap;}
+  @media (max-width:680px){ .combo-price{text-align:left;} }
+  .combo-price .now{font-family:'Fraunces', serif; font-size:1.3rem; color:var(--gold);}
+  .combo-price .before{font-size:0.82rem; color:var(--paper-dim); text-decoration:line-through; display:block;}
+
+  /* ---------- B2B ---------- */
+  .b2b{
+    background:var(--paper);
+    color:var(--charcoal);
+  }
+  .b2b .section-head h2{color:var(--charcoal);}
+  .b2b .section-head p{color:#5a4f3c;}
+  .b2b-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+    gap:40px;
+  }
+  .b2b-item .num{
+    font-family:'Fraunces', serif; font-size:1.6rem; color:var(--rust);
+    margin-bottom:10px; display:block;
+  }
+  .b2b-item h3{font-size:1.1rem; margin-bottom:8px; color:var(--charcoal);}
+  .b2b-item p{font-size:0.9rem; color:#5a4f3c;}
+
+  /* ---------- WHERE TO FIND ---------- */
+  .find-list{
+    display:flex; flex-wrap:wrap; gap:14px;
+  }
+  .find-chip{
+    border:1px solid rgba(198,154,62,0.4);
+    padding:10px 20px;
+    font-size:0.92rem;
+    color:var(--paper);
+  }
+  .local-block{
+    margin-top:44px;
+    padding-top:36px;
+    border-top:1px solid rgba(198,154,62,0.2);
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+  }
+  @media (max-width:680px){ .local-block{grid-template-columns:1fr;} }
+  .local-block h3{font-size:1rem; color:var(--gold); margin-bottom:10px;}
+  .local-block p{font-size:0.92rem; color:var(--paper-dim);}
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer{
+    background:var(--charcoal-2);
+    padding:70px 0 40px;
+  }
+  .contact-top{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    flex-wrap:wrap; gap:30px;
+    margin-bottom:50px;
+  }
+  .contact-top h2{font-size:clamp(1.7rem, 3vw, 2.2rem); max-width:20ch;}
+  .contact-links{display:flex; flex-direction:column; gap:10px;}
+  .contact-links a{font-size:1rem; color:var(--paper-dim); transition:color .2s;}
+  .contact-links a:hover{color:var(--gold);}
+  .foot-bottom{
+    border-top:1px solid rgba(198,154,62,0.2);
+    padding-top:26px;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+    font-size:0.82rem; color:var(--paper-dim);
+  }
+</style>
+</head>
+<body class="grain">
+
+<nav>
+  <div class="wrap">
+    <div class="brandmark">
+      <span class="badge-icon">DF</span>
+      Don Fermín
+    </div>
+    <div class="navlinks">
+      <a href="#lineas">Líneas</a>
+      <a href="#combos">Combos</a>
+      <a href="#negocios">Para tu negocio</a>
+      <a href="#tiendas">Dónde encontrarnos</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow-line">Hechas en el Perú, horneadas en pequeños lotes</p>
+      <h1>Galletas que se ganan el segundo aullido</h1>
+      <p class="lead">Snacks artesanales para perros y gatos, hechos con ingredientes reales y líneas pensadas para paladares y estómagos exigentes. Nada de rellenos, todo sabor.</p>
+      <div class="cta-row">
+        <a class="btn btn-solid" href="https://wa.me/51922786607" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+        <a class="btn btn-line" href="#lineas">Ver todas las líneas</a>
+      </div>
+    </div>
+    <div class="hero-badge">
+      <div class="hero-badge-inner">
+        <div class="top">Galletas artesanales</div>
+        <div class="dog-mark">🐾</div>
+        <div class="name">Don Fermín</div>
+        <div class="bottom">para perros y gatos</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="intro-strip">
+  <div class="wrap">
+    <div class="intro-item">
+      <h3>Ingredientes reconocibles</h3>
+      <p>Cordero, hígado de pollo, camote, plátano. Si no lo comerías tú, no lo horneamos.</p>
+    </div>
+    <div class="intro-item">
+      <h3>Líneas funcionales</h3>
+      <p>Riñones sensibles, corazones sensibles, grain free — pensadas junto a necesidades reales.</p>
+    </div>
+    <div class="intro-item">
+      <h3>Ya en tiendas de Lima</h3>
+      <p>Presentes en Superpet, Plaza Vea, Lumpet y Go Pet, además de venta directa.</p>
+    </div>
+  </div>
+</div>
+
+<section id="lineas">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Cinco líneas, un mismo estándar</h2>
+      <p>Desde la galleta clásica hasta el cuidado de la piel, cada línea nace de un problema real que nos contó algún dueño de mascota.</p>
+    </div>
+    <div class="lines-grid">
+      <div class="line-card">
+        <span class="tag">Perros</span>
+        <h3>Galletas artesanales</h3>
+        <p>Cordero rostizado, hígado de pollo, con vegetales, grain free, especiales para riñones y corazones sensibles.</p>
+        <span class="price">Desde S/ 4.00</span>
+      </div>
+      <div class="line-card">
+        <span class="tag">Perros y gatos</span>
+        <h3>Liofilizados</h3>
+        <p>Veggie Pet en mix de frutas y verduras, y argollas de tráquea de res, 100% naturales.</p>
+        <span class="price">Desde S/ 13.30</span>
+      </div>
+      <div class="line-card">
+        <span class="tag">Gatos</span>
+        <h3>Frida la Gata</h3>
+        <p>Medallones de pescado liofilizado en jurel, pejerrey y trucha, más aceite puro de salmón.</p>
+        <span class="price">Desde S/ 16.00</span>
+      </div>
+      <div class="line-card">
+        <span class="tag">Perros</span>
+        <h3>Huesos recreativos</h3>
+        <p>Huesos manzanos, brazuelo de cerdo y patas de pollo, siempre congelados y frescos.</p>
+        <span class="price">Desde S/ 9.50</span>
+      </div>
+      <div class="line-card">
+        <span class="tag">Cuidado</span>
+        <h3>Luna Lunera</h3>
+        <p>Shampoo sólido, crema humectante para patitas y neutralizador de olores, hechos con ingredientes suaves.</p>
+        <span class="price">Desde S/ 13.50</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="combos">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Combos del mes</h2>
+      <p>Formas de probar más de una línea a la vez, pensadas para regalar o para consentir sin culpa.</p>
+    </div>
+    <div class="combos-list">
+      <div class="combo-row">
+        <div class="combo-icon">🎂</div>
+        <div class="combo-info">
+          <h3>Cumpleaños Peludo</h3>
+          <p>Galleta artesanal grande + hueso recreativo + tarjeta personalizada con su nombre.</p>
+        </div>
+        <div class="combo-price">
+          <span class="before">Antes S/ 39</span>
+          <span class="now">S/ 35</span>
+        </div>
+      </div>
+      <div class="combo-row">
+        <div class="combo-icon">🐾</div>
+        <div class="combo-info">
+          <h3>Familia Completa</h3>
+          <p>Galleta artesanal para tu perro + snack liofilizado Frida la Gata para tu gato.</p>
+        </div>
+        <div class="combo-price">
+          <span class="before">Antes S/ 48</span>
+          <span class="now">S/ 40</span>
+        </div>
+      </div>
+      <div class="combo-row">
+        <div class="combo-icon">✨</div>
+        <div class="combo-info">
+          <h3>Bienvenida</h3>
+          <p>Una galleta grande más una presentación pequeña de otro sabor, para descubrir su favorita.</p>
+        </div>
+        <div class="combo-price">
+          <span class="before">Antes S/ 29</span>
+          <span class="now">S/ 24</span>
+        </div>
+      </div>
+      <div class="combo-row">
+        <div class="combo-icon">🌙</div>
+        <div class="combo-info">
+          <h3>Bienestar Luna Lunera</h3>
+          <p>Shampoo sólido + crema para patitas + neutralizador de olores, el ritual completo.</p>
+        </div>
+        <div class="combo-price">
+          <span class="before">Antes S/ 68</span>
+          <span class="now">S/ 58</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="negocios" class="b2b">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Para veterinarias y petshops</h2>
+      <p>Trabajamos con negocios que quieren ofrecer algo distinto a sus clientes, con respaldo y sin arriesgar en la primera compra.</p>
+    </div>
+    <div class="b2b-grid">
+      <div class="b2b-item">
+        <span class="num">01</span>
+        <h3>Precio mayorista</h3>
+        <p>Desde 12 a 24 unidades por sabor, con precio especial de mayorista y libertad para definir tu propio margen de reventa.</p>
+      </div>
+      <div class="b2b-item">
+        <span class="num">02</span>
+        <h3>Stock de prueba</h3>
+        <p>Muestras a mitad de precio para que veas cómo rota cada línea antes de comprometer inventario grande.</p>
+      </div>
+      <div class="b2b-item">
+        <span class="num">03</span>
+        <h3>Material de exhibición</h3>
+        <p>Flyers y catálogo listos para tu mostrador, para que tus clientes conozcan todas las líneas de un vistazo.</p>
+      </div>
+      <div class="b2b-item">
+        <span class="num">04</span>
+        <h3>Exclusividad por zona</h3>
+        <p>Al inicio, priorizamos un solo punto de venta por distrito, para que tu negocio no compita con el de al lado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="tiendas">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Dónde encontrarnos</h2>
+      <p>Si no puedes visitarnos en Lince, estas tiendas ya trabajan con nosotros.</p>
+    </div>
+    <div class="find-list">
+      <span class="find-chip">Superpet</span>
+      <span class="find-chip">Plaza Vea</span>
+      <span class="find-chip">Lumpet</span>
+      <span class="find-chip">Go Pet</span>
+    </div>
+    <div class="local-block">
+      <div>
+        <h3>Tienda física</h3>
+        <p>Jr. Mariscal Las Heras 658, Lince, Lima.</p>
+      </div>
+      <div>
+        <h3>Horario de atención</h3>
+        <p>Escríbenos por WhatsApp para coordinar tu visita o tu pedido a domicilio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contacto">
+  <div class="wrap">
+    <div class="contact-top">
+      <h2>¿Hablamos de tu próximo pedido?</h2>
+      <div class="contact-links">
+        <a href="https://wa.me/51922786607" target="_blank" rel="noopener">+51 922 786 607 — WhatsApp</a>
+        <a href="https://www.instagram.com/galletasdonferminoficial" target="_blank" rel="noopener">@galletasdonferminoficial</a>
+        <a href="#" target="_blank" rel="noopener">Galletas Don Fermín — Facebook</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Galletas Don Fermín. Jr. Mariscal Las Heras 658, Lince, Lima.</span>
+      <span>Snacks artesanales para perros y gatos.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
