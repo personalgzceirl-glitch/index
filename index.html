@@ -19,9 +19,7 @@
   }
 
   *{box-sizing:border-box; margin:0; padding:0;}
-
   html{scroll-behavior:smooth;}
-
   body{
     background:var(--charcoal);
     color:var(--paper);
@@ -29,7 +27,7 @@
     line-height:1.55;
   }
 
-  h1,h2,h3{
+  h1,h2,h3,h4{
     font-family:'Fraunces', serif;
     font-weight:600;
     line-height:1.1;
@@ -43,7 +41,6 @@
     padding:0 28px;
   }
 
-  /* texture */
   .grain{
     background-image:
       radial-gradient(circle at 20% 30%, rgba(242,233,214,0.025) 1px, transparent 1px),
@@ -51,7 +48,7 @@
     background-size: 34px 34px, 47px 47px;
   }
 
-  /* ---------- NAV ---------- */
+  /* NAV */
   nav{
     position:sticky; top:0; z-index:50;
     background:rgba(36,29,21,0.92);
@@ -65,239 +62,183 @@
   .brandmark{
     display:flex; align-items:center; gap:12px;
     font-family:'Fraunces', serif; font-size:1.15rem; font-weight:700;
-    letter-spacing:0.02em;
     color:var(--paper);
   }
-  .badge-icon{
-    width:34px; height:34px;
-    clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
-    background:var(--gold);
-    display:flex; align-items:center; justify-content:center;
-    font-family:'Fraunces', serif; color:var(--charcoal); font-weight:700; font-size:0.85rem;
+  .brandmark img.nav-logo{
+    height:48px;
+    width:auto;
+    display:block;
   }
   .navlinks{display:flex; gap:30px; font-size:0.92rem;}
   .navlinks a{opacity:0.85; transition:opacity .2s;}
   .navlinks a:hover{opacity:1; color:var(--gold);}
   @media (max-width:720px){ .navlinks{display:none;} }
 
-  /* ---------- HERO ---------- */
-  .hero{
-    padding:100px 0 90px;
-    position:relative;
-    overflow:hidden;
-  }
-  .hero .wrap{
-    display:grid;
-    grid-template-columns:1.1fr 0.8fr;
-    gap:56px;
-    align-items:center;
-  }
+  /* HERO */
+  .hero{ padding:90px 0 80px; position:relative; overflow:hidden; }
+  .hero .wrap{ display:grid; grid-template-columns:1.1fr 0.8fr; gap:56px; align-items:center; }
   @media (max-width:860px){ .hero .wrap{grid-template-columns:1fr;} }
 
-  .eyebrow-line{
-    font-size:0.95rem;
-    color:var(--gold);
-    margin-bottom:18px;
-    font-style:italic;
-    font-family:'Fraunces', serif;
-  }
-  .hero h1{
-    font-size:clamp(2.3rem, 5vw, 3.6rem);
-    color:var(--paper);
-    margin-bottom:22px;
-  }
-  .hero p.lead{
-    font-size:1.08rem;
-    color:var(--paper-dim);
-    max-width:46ch;
-    margin-bottom:34px;
-  }
+  .eyebrow-line{ font-size:0.95rem; color:var(--gold); margin-bottom:18px; font-style:italic; font-family:'Fraunces', serif; }
+  .hero h1{ font-size:clamp(2.3rem, 5vw, 3.6rem); color:var(--paper); margin-bottom:22px; }
+  .hero p.lead{ font-size:1.08rem; color:var(--paper-dim); max-width:46ch; margin-bottom:34px; }
   .cta-row{display:flex; gap:16px; flex-wrap:wrap;}
-  .btn{
-    display:inline-block;
-    padding:14px 26px;
-    font-size:0.95rem;
-    font-weight:500;
-    border:1px solid var(--gold);
-    transition:all .2s ease;
-  }
+  .btn{ display:inline-block; padding:14px 26px; font-size:0.95rem; font-weight:500; border:1px solid var(--gold); transition:all .2s ease; }
   .btn-solid{background:var(--gold); color:var(--charcoal);}
   .btn-solid:hover{background:transparent; color:var(--gold);}
   .btn-line{color:var(--paper); border-color:rgba(242,233,214,0.35);}
   .btn-line:hover{border-color:var(--gold); color:var(--gold);}
 
-  .hero-badge{
-    aspect-ratio:1;
-    max-width:340px;
+  .hero-logo-img{
+    max-width:100%;
+    height:auto;
+    max-height:300px;
+    display:block;
     margin:0 auto;
-    clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
-    background:linear-gradient(160deg, var(--paper), var(--paper-dim));
-    display:flex; align-items:center; justify-content:center;
-    position:relative;
-    border:3px double var(--charcoal);
-  }
-  .hero-badge-inner{
-    text-align:center;
-    color:var(--charcoal);
-    padding:20px;
-  }
-  .hero-badge-inner .top{
-    font-size:0.68rem; letter-spacing:0.12em; text-transform:uppercase;
-    margin-bottom:10px; font-weight:600; color:var(--rust);
-  }
-  .hero-badge-inner .dog-mark{
-    font-size:3.2rem; margin:6px 0 10px;
-  }
-  .hero-badge-inner .name{
-    font-family:'Fraunces', serif; font-size:1.8rem; font-weight:700;
-  }
-  .hero-badge-inner .bottom{
-    font-size:0.65rem; letter-spacing:0.1em; margin-top:8px; opacity:0.75;
+    filter: drop-shadow(0px 8px 16px rgba(0,0,0,0.4));
   }
 
-  /* ---------- INTRO STRIP ---------- */
-  .intro-strip{
-    border-top:1px solid rgba(198,154,62,0.25);
-    border-bottom:1px solid rgba(198,154,62,0.25);
-    padding:44px 0;
-  }
-  .intro-strip .wrap{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:36px;
-  }
+  /* INTRO STRIP */
+  .intro-strip{ border-top:1px solid rgba(198,154,62,0.25); border-bottom:1px solid rgba(198,154,62,0.25); padding:44px 0; }
+  .intro-strip .wrap{ display:grid; grid-template-columns:repeat(3, 1fr); gap:36px; }
   @media (max-width:720px){ .intro-strip .wrap{grid-template-columns:1fr;} }
   .intro-item h3{font-size:1.05rem; color:var(--gold); margin-bottom:8px; font-weight:600;}
   .intro-item p{color:var(--paper-dim); font-size:0.92rem;}
 
-  /* ---------- SECTION HEADERS ---------- */
-  section{padding:88px 0;}
-  .section-head{
-    max-width:56ch;
-    margin-bottom:52px;
-  }
-  .section-head h2{
-    font-size:clamp(1.8rem, 3.4vw, 2.5rem);
-    color:var(--paper);
-    margin-bottom:14px;
-  }
+  /* SECTIONS */
+  section{padding:80px 0;}
+  .section-head{ max-width:56ch; margin-bottom:44px; }
+  .section-head h2{ font-size:clamp(1.8rem, 3.4vw, 2.5rem); color:var(--paper); margin-bottom:14px; }
   .section-head p{color:var(--paper-dim); font-size:1rem;}
 
-  /* ---------- LINES (product families) ---------- */
-  .lines-grid{
+  /* PRODUCT CATALOG GRID */
+  .category-title{
+    font-size:1.5rem;
+    color:var(--gold);
+    margin:36px 0 20px;
+    border-bottom:1px solid rgba(198,154,62,0.3);
+    padding-bottom:8px;
+  }
+  .catalog-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr));
-    gap:2px;
-    background:rgba(198,154,62,0.25);
-    border:1px solid rgba(198,154,62,0.25);
+    grid-template-columns:repeat(auto-fill, minmax(230px, 1fr));
+    gap:20px;
+    margin-bottom:40px;
   }
-  .line-card{
+  .product-card{
     background:var(--charcoal-2);
-    padding:32px 26px;
+    border:1px solid rgba(198,154,62,0.2);
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
   }
-  .line-card .tag{
-    font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase;
-    color:var(--gold-dim); margin-bottom:14px; display:block;
+  .product-img-ph{
+    width:100%;
+    height:140px;
+    background:rgba(242,233,214,0.05);
+    border:1px dashed rgba(198,154,62,0.3);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:0.8rem;
+    color:var(--paper-dim);
+    margin-bottom:14px;
+    text-align:center;
+    padding:10px;
   }
-  .line-card h3{
-    font-size:1.25rem; color:var(--paper); margin-bottom:10px;
+  .product-card h4{ font-size:1.1rem; color:var(--paper); margin-bottom:8px; }
+  .product-card .details{ font-size:0.85rem; color:var(--paper-dim); margin-bottom:14px; flex-grow:1; }
+  .product-card .details span{ display:block; margin-bottom:2px; }
+  .product-card .pricing{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    border-top:1px solid rgba(198,154,62,0.15);
+    padding-top:10px;
   }
-  .line-card p{
-    font-size:0.9rem; color:var(--paper-dim); margin-bottom:16px;
-  }
-  .line-card .price{
-    font-family:'Fraunces', serif; color:var(--gold); font-size:1.05rem;
-  }
+  .product-card .pvp{ font-family:'Fraunces', serif; font-size:1.15rem; color:var(--gold); font-weight:700; }
+  .product-card .p-wholesoles{ font-size:0.8rem; color:var(--paper-dim); }
 
-  /* ---------- COMBOS ---------- */
+  /* COMBOS */
   .combos-list{display:flex; flex-direction:column;}
   .combo-row{
-    display:grid;
-    grid-template-columns:auto 1fr auto;
-    gap:28px;
-    align-items:center;
-    padding:26px 0;
-    border-bottom:1px solid rgba(198,154,62,0.2);
+    display:grid; grid-template-columns:auto 1fr auto; gap:28px; align-items:center;
+    padding:24px 0; border-bottom:1px solid rgba(198,154,62,0.2);
   }
-  @media (max-width:680px){
-    .combo-row{grid-template-columns:1fr; text-align:left;}
-  }
+  @media (max-width:680px){ .combo-row{grid-template-columns:1fr;} }
   .combo-row:first-child{border-top:1px solid rgba(198,154,62,0.2);}
   .combo-icon{
-    width:52px; height:52px;
-    clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
-    background:var(--rust);
-    display:flex; align-items:center; justify-content:center;
+    width:48px; height:48px; clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+    background:var(--rust); display:flex; align-items:center; justify-content:center;
     color:var(--paper); font-family:'Fraunces', serif; font-weight:700;
   }
-  .combo-info h3{font-size:1.15rem; color:var(--paper); margin-bottom:6px;}
+  .combo-info h3{font-size:1.1rem; color:var(--paper); margin-bottom:4px;}
   .combo-info p{font-size:0.88rem; color:var(--paper-dim);}
   .combo-price{text-align:right; white-space:nowrap;}
   @media (max-width:680px){ .combo-price{text-align:left;} }
-  .combo-price .now{font-family:'Fraunces', serif; font-size:1.3rem; color:var(--gold);}
-  .combo-price .before{font-size:0.82rem; color:var(--paper-dim); text-decoration:line-through; display:block;}
+  .combo-price .now{font-family:'Fraunces', serif; font-size:1.25rem; color:var(--gold);}
+  .combo-price .before{font-size:0.8rem; color:var(--paper-dim); text-decoration:line-through; display:block;}
 
-  /* ---------- B2B ---------- */
-  .b2b{
-    background:var(--paper);
-    color:var(--charcoal);
-  }
+  /* B2B */
+  .b2b{ background:var(--paper); color:var(--charcoal); }
   .b2b .section-head h2{color:var(--charcoal);}
   .b2b .section-head p{color:#5a4f3c;}
-  .b2b-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
-    gap:40px;
-  }
-  .b2b-item .num{
-    font-family:'Fraunces', serif; font-size:1.6rem; color:var(--rust);
-    margin-bottom:10px; display:block;
-  }
-  .b2b-item h3{font-size:1.1rem; margin-bottom:8px; color:var(--charcoal);}
-  .b2b-item p{font-size:0.9rem; color:#5a4f3c;}
+  .b2b-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:32px; }
+  .b2b-item .num{ font-family:'Fraunces', serif; font-size:1.5rem; color:var(--rust); margin-bottom:8px; display:block; }
+  .b2b-item h3{font-size:1.05rem; margin-bottom:6px; color:var(--charcoal);}
+  .b2b-item p{font-size:0.88rem; color:#5a4f3c;}
 
-  /* ---------- WHERE TO FIND ---------- */
-  .find-list{
-    display:flex; flex-wrap:wrap; gap:14px;
+  .b2b-form {
+    margin-top: 48px;
+    background: rgba(36,29,21,0.06);
+    padding: 32px;
+    border: 1px solid rgba(36,29,21,0.2);
   }
-  .find-chip{
-    border:1px solid rgba(198,154,62,0.4);
-    padding:10px 20px;
-    font-size:0.92rem;
-    color:var(--paper);
+  .b2b-form h3 { margin-bottom: 16px; color: var(--charcoal); }
+  .form-group { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  @media (max-width: 600px) { .form-group { grid-template-columns: 1fr; } }
+  .b2b-form input, .b2b-form textarea {
+    width: 100%; padding: 12px; border: 1px solid var(--charcoal-2);
+    background: var(--paper); font-family: inherit; color: var(--charcoal);
   }
-  .local-block{
-    margin-top:44px;
-    padding-top:36px;
-    border-top:1px solid rgba(198,154,62,0.2);
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:30px;
-  }
+
+  /* FIND */
+  .find-list{ display:flex; flex-wrap:wrap; gap:12px; }
+  .find-chip{ border:1px solid rgba(198,154,62,0.4); padding:8px 18px; font-size:0.9rem; color:var(--paper); }
+  .local-block{ margin-top:36px; padding-top:28px; border-top:1px solid rgba(198,154,62,0.2); display:grid; grid-template-columns:1fr 1fr; gap:24px; }
   @media (max-width:680px){ .local-block{grid-template-columns:1fr;} }
-  .local-block h3{font-size:1rem; color:var(--gold); margin-bottom:10px;}
-  .local-block p{font-size:0.92rem; color:var(--paper-dim);}
+  .local-block h3{font-size:0.98rem; color:var(--gold); margin-bottom:8px;}
+  .local-block p{font-size:0.9rem; color:var(--paper-dim);}
 
-  /* ---------- CONTACT / FOOTER ---------- */
-  footer{
-    background:var(--charcoal-2);
-    padding:70px 0 40px;
+  /* FAQ */
+  .faq-item { border-bottom: 1px solid rgba(198,154,62,0.2); padding: 18px 0; }
+  .faq-item summary {
+    font-family: 'Fraunces', serif; font-size: 1.1rem; color: var(--paper);
+    cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center;
   }
-  .contact-top{
-    display:flex; justify-content:space-between; align-items:flex-end;
-    flex-wrap:wrap; gap:30px;
-    margin-bottom:50px;
-  }
-  .contact-top h2{font-size:clamp(1.7rem, 3vw, 2.2rem); max-width:20ch;}
-  .contact-links{display:flex; flex-direction:column; gap:10px;}
-  .contact-links a{font-size:1rem; color:var(--paper-dim); transition:color .2s;}
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: '+'; color: var(--gold); font-size: 1.4rem; }
+  .faq-item[open] summary::after { content: '−'; }
+  .faq-item p { margin-top: 10px; color: var(--paper-dim); font-size: 0.95rem; }
+
+  /* FOOTER */
+  footer{ background:var(--charcoal-2); padding:60px 0 36px; }
+  .contact-top{ display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:24px; margin-bottom:40px; }
+  .contact-top h2{font-size:clamp(1.6rem, 3vw, 2.1rem); max-width:20ch;}
+  .contact-links{display:flex; flex-direction:column; gap:8px;}
+  .contact-links a{font-size:0.95rem; color:var(--paper-dim); transition:color .2s;}
   .contact-links a:hover{color:var(--gold);}
-  .foot-bottom{
-    border-top:1px solid rgba(198,154,62,0.2);
-    padding-top:26px;
-    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
-    font-size:0.82rem; color:var(--paper-dim);
+  .foot-bottom{ border-top:1px solid rgba(198,154,62,0.2); padding-top:22px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; font-size:0.8rem; color:var(--paper-dim); }
+
+  /* WHATSAPP FLOAT */
+  .whatsapp-float {
+    position: fixed; bottom: 24px; right: 24px; background-color: #25d366; color: #fff;
+    width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3); z-index: 100; transition: transform 0.2s ease;
   }
+  .whatsapp-float:hover { transform: scale(1.1); }
+  .whatsapp-float svg { width: 30px; height: 30px; fill: currentColor; }
 </style>
 </head>
 <body class="grain">
@@ -305,14 +246,15 @@
 <nav>
   <div class="wrap">
     <div class="brandmark">
-      <span class="badge-icon">DF</span>
+      <img src="LOGO.jpg" alt="Don Fermín Logo" class="nav-logo">
       Don Fermín
     </div>
     <div class="navlinks">
-      <a href="#lineas">Líneas</a>
+      <a href="#catalogo">Catálogo</a>
       <a href="#combos">Combos</a>
       <a href="#negocios">Para tu negocio</a>
-      <a href="#tiendas">Dónde encontrarnos</a>
+      <a href="#tiendas">Tiendas</a>
+      <a href="#faq">FAQ</a>
       <a href="#contacto">Contacto</a>
     </div>
   </div>
@@ -321,21 +263,16 @@
 <header class="hero">
   <div class="wrap">
     <div>
-      <p class="eyebrow-line">Hechas en el Perú, horneadas en pequeños lotes</p>
-      <h1>Galletas que se ganan el segundo aullido</h1>
-      <p class="lead">Snacks artesanales para perros y gatos, hechos con ingredientes reales y líneas pensadas para paladares y estómagos exigentes. Nada de rellenos, todo sabor.</p>
+      <p class="eyebrow-line">Hechas en el Perú, horneadas en pequeños lotes[cite: 1]</p>
+      <h1>Galletas que se ganan el segundo aullido[cite: 1]</h1>
+      <p class="lead">Snacks artesanales para perros y gatos[cite: 1, 2], hechos con ingredientes reales y líneas pensadas para paladares y estómagos exigentes[cite: 1]. Nada de rellenos, todo sabor[cite: 1].</p>
       <div class="cta-row">
-        <a class="btn btn-solid" href="https://wa.me/51922786607" target="_blank" rel="noopener">Pedir por WhatsApp</a>
-        <a class="btn btn-line" href="#lineas">Ver todas las líneas</a>
+        <a class="btn btn-solid" href="https://wa.me/51922786607" target="_blank" rel="noopener">Pedir por WhatsApp[cite: 1, 2]</a>
+        <a class="btn btn-line" href="#catalogo">Ver productos</a>
       </div>
     </div>
-    <div class="hero-badge">
-      <div class="hero-badge-inner">
-        <div class="top">Galletas artesanales</div>
-        <div class="dog-mark">🐾</div>
-        <div class="name">Don Fermín</div>
-        <div class="bottom">para perros y gatos</div>
-      </div>
+    <div>
+      <img src="LOGO.jpg" alt="Don Fermín — Galletas artesanales para perros" class="hero-logo-img">
     </div>
   </div>
 </header>
@@ -343,110 +280,350 @@
 <div class="intro-strip">
   <div class="wrap">
     <div class="intro-item">
-      <h3>Ingredientes reconocibles</h3>
-      <p>Cordero, hígado de pollo, camote, plátano. Si no lo comerías tú, no lo horneamos.</p>
+      <h3>Ingredientes reconocibles[cite: 1]</h3>
+      <p>Cordero, hígado de pollo, camote, plátano[cite: 1]. Si no lo comerías tú, no lo horneamos[cite: 1].</p>
     </div>
     <div class="intro-item">
-      <h3>Líneas funcionales</h3>
-      <p>Riñones sensibles, corazones sensibles, grain free — pensadas junto a necesidades reales.</p>
+      <h3>Líneas funcionales[cite: 1]</h3>
+      <p>Riñones sensibles, corazones sensibles, grain free — pensadas junto a necesidades reales[cite: 1].</p>
     </div>
     <div class="intro-item">
-      <h3>Ya en tiendas de Lima</h3>
-      <p>Presentes en Superpet, Plaza Vea, Lumpet y Go Pet, además de venta directa.</p>
+      <h3>Ya en tiendas de Lima[cite: 1]</h3>
+      <p>Presentes en Superpet, Plaza Vea, Lumpet y Go Pet, además de venta directa[cite: 1].</p>
     </div>
   </div>
 </div>
 
-<section id="lineas">
+<!-- CATÁLOGO COMPLETO DE PRODUCTOS -->
+<section id="catalogo">
   <div class="wrap">
     <div class="section-head">
-      <h2>Cinco líneas, un mismo estándar</h2>
-      <p>Desde la galleta clásica hasta el cuidado de la piel, cada línea nace de un problema real que nos contó algún dueño de mascota.</p>
+      <h2>Catálogo Completo</h2>
+      <p>Explora nuestras 5 líneas artesanales elaboradas especialmente para perros y gatos[cite: 1, 2].</p>
     </div>
-    <div class="lines-grid">
-      <div class="line-card">
-        <span class="tag">Perros</span>
-        <h3>Galletas artesanales</h3>
-        <p>Cordero rostizado, hígado de pollo, con vegetales, grain free, especiales para riñones y corazones sensibles.</p>
-        <span class="price">Desde S/ 4.00</span>
+
+    <!-- 1. GALLETAS ARTESANALES -->
+    <h3 class="category-title">Galletas Artesanales[cite: 2]</h3>
+    <div class="catalog-grid">
+      <div class="product-card">
+        <div class="product-img-ph">Foto Producto</div>
+        <h4>Cordero Rostizado[cite: 2]</h4>
+        <div class="details">
+          <span><strong>Peso:</strong> 120 gr[cite: 2]</span>
+          <span><strong>Cantidad:</strong> 108 apx[cite: 2]</span>
+        </div>
+        <div class="pricing">
+          <span class="p-wholesoles">Mayorista: S/ 14.90[cite: 2]</span>
+          <span class="pvp">S/ 22.00[cite: 2]</span>
+        </div>
       </div>
-      <div class="line-card">
-        <span class="tag">Perros y gatos</span>
-        <h3>Liofilizados</h3>
-        <p>Veggie Pet en mix de frutas y verduras, y argollas de tráquea de res, 100% naturales.</p>
-        <span class="price">Desde S/ 13.30</span>
+      <div class="product-card">
+        <div class="product-img-ph">Foto Producto</div>
+        <h4>Cordero Bocados Pequeños[cite: 2]</h4>
+        <div class="details">
+          <span><strong>Peso:</strong> 120 gr[cite: 2]</span>
+          <span><strong>Cantidad:</strong> 190 apx[cite: 2]</span>
+        </div>
+        <div class="pricing">
+          <span class="p-wholesoles">Mayorista: S/ 15.70[cite: 2]</span>
+          <span class="pvp">S/ 23.00[cite: 2]</span>
+        </div>
       </div>
-      <div class="line-card">
-        <span class="tag">Gatos</span>
-        <h3>Frida la Gata</h3>
-        <p>Medallones de pescado liofilizado en jurel, pejerrey y trucha, más aceite puro de salmón.</p>
-        <span class="price">Desde S/ 16.00</span>
+      <div class="product-card">
+        <div class="product-img-ph">Foto Producto</div>
+        <h4>Puro Hígado de Pollo[cite: 2]</h4>
+        <div class="details">
+          <span><strong>Peso:</strong> 120 gr[cite: 2]</span>
+          <span><strong>Cantidad:</strong> 108 apx[cite: 2]</span>
+        </div>
+        <div class="pricing">
+          <span class="p-wholesoles">Mayorista: S/ 14.90[cite: 2]</span>
+          <span class="pvp">S/ 22.00[cite: 2]</span>
+        </div>
       </div>
-      <div class="line-card">
-        <span class="tag">Perros</span>
-        <h3>Huesos recreativos</h3>
-        <p>Huesos manzanos, brazuelo de cerdo y patas de pollo, siempre congelados y frescos.</p>
-        <span class="price">Desde S/ 9.50</span>
+      <div class="product-card">
+        <div class="product-img-ph">Foto Producto</div>
+        <h4>Con Vegetales[cite: 2]</h4>
+        <div class="details">
+          <span><strong>Peso:</strong> 120 gr[cite: 2]</span>
+          <span><strong>Cantidad:</strong> 108 apx[cite: 2]</span>
+        </div>
+        <div class="pricing">
+          <span class="p-wholesoles">Mayorista: S/ 14.90[cite: 2]</span>
+          <span class="pvp">S/ 22.00[cite: 2]</span>
+        </div>
       </div>
-      <div class="line-card">
-        <span class="tag">Cuidado</span>
-        <h3>Luna Lunera</h3>
-        <p>Shampoo sólido, crema humectante para patitas y neutralizador de olores, hechos con ingredientes suaves.</p>
-        <span class="price">Desde S/ 13.50</span>
+      <div class="product-card">
+        <div class="product-img-ph">Foto Producto</div>
+        <h4>Especiales Corazones Sensibles[cite: 2]</h4>
+        <div class="details">
+          <span><strong>Peso:</strong> 120 gr[cite: 2]</span>
+          <span><strong>Cantidad:</strong> 108 apx[cite: 2]</span>
+        </div>
+        <div class="pricing">
+          <span class="p-wholesoles">Mayorista: S/ 14.90[cite: 2]</span>
+          <span class="pvp">S/ 22.00[cite: 2]</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-ph">Foto Producto</div>
+        <h4>Especiales Grain Free[cite: 2]</h4>
+        <div class="details">
+          <span><strong>Peso:</strong> 120 gr[cite: 2]</span>
+        </div>
+        <div class="pricing">
+          <span class="p-wholesoles">Mayorista: S/ 15.70[cite: 2]</span>
+          <span class="pvp">S/ 23.00[cite: 2]</span>
+        </div>
       </div>
     </div>
+
+    <!-- 2. LIOFILIZADOS -->
+    <h3 class="category-title">Liofilizados[cite: 2]</h3>
+    <div class="catalog-grid">
+      <div class="product-card">
+        <div class="product-img-ph">Foto Producto</div>
+        <h4>Argollas Tráqueas de Res[cite: 2]</h4>
+        <div class="details">
+          <span><strong>Cantidad:</strong> 10 unidades[cite: 2]</span>
+        </div>
+        <div class="pricing">
+          <span class="p-wholesoles">Mayorista: S/ 13.30[cite: 2]</span>
+          <span class="pvp">S/ 20.00[cite: 2]</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-ph">Foto Producto</div>
+        <h4>Veggie Pet Mix Frutas y Verduras[cite: 2]</h4>
+        <div class="details">
+          <span><strong>Peso:</strong> 50 gr[cite: 2]</span>
+        </div>
+        <div class="pricing">
+          <span class="p-wholesoles">Mayorista: S/ 14.90[cite: 2]</span>
+          <span class="pvp">S/ 23.00[cite: 2]</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-ph">Foto Producto</div>
+        <h4>Veggie Pet Yacón Deshidratado[cite: 2]</h4>
+        <div class="details">
+          <span><strong>Peso:</strong> 35 gr[cite: 2]</span>
+        </div>
+        <div class="pricing">
+          <span class="p-wholesoles">Mayorista: S/ 13.90[cite: 2]</span>
+          <span class="pvp">S/ 22.50[cite: 2]</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. LÍNEA PARA GATOS (FRIDA LA GATA) -->
+    <h3 class="category-title">Línea para Gatos (Frida la Gata)[cite: 2]</h3>
+    <div class="catalog-grid">
+      <div class="product-card">
+        <div class="product-img-ph">Foto Producto</div>
+        <h4>Frida la Gata Jurel[cite: 2]</h4>
+        <div class="details">
+          <span>Medallones liofilizados[cite: 2]</span>
+          <span><strong>Peso:</strong> 55 gr[cite: 2]</span>
+        </div>
+        <div class="pricing">
+          <span class="p-wholesoles">Mayorista: S/ 16.00[cite: 2]</span>
+          <span class="pvp">S/ 26.00[cite: 2]</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-ph">Foto Producto</div>
+        <h4>Frida la Gata Pejerrey[cite: 2]</h4>
+        <div class="details">
+          <span>Medallones liofilizados[cite: 2]</span>
+          <span><strong>Peso:</strong> 55 gr[cite: 2]</span>
+        </div>
+        <div class="pricing">
+          <span class="p-wholesoles">Mayorista: S/ 18.00[cite: 2]</span>
+          <span class="pvp">S/ 29.00[cite: 2]</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-ph">Foto Producto</div>
+        <h4>Frida la Gata Trucha[cite: 2]</h4>
+        <div class="details">
+          <span>Medallones liofilizados[cite: 2]</span>
+          <span><strong>Peso:</strong> 55 gr[cite: 2]</span>
+        </div>
+        <div class="pricing">
+          <span class="p-wholesoles">Mayorista: S/ 18.00[cite: 2]</span>
+          <span class="pvp">S/ 29.00[cite: 2]</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-ph">Foto Producto</div>
+        <h4>Bendito Salmón[cite: 2]</h4>
+        <div class="details">
+          <span>Puro Aceite de Salmón[cite: 2]</span>
+          <span><strong>Contenido:</strong> 300 ml[cite: 2]</span>
+        </div>
+        <div class="pricing">
+          <span class="p-wholesoles">Mayorista: S/ 40.40[cite: 2]</span>
+          <span class="pvp">S/ 62.00[cite: 2]</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. HUESOS RECREATIVOS -->
+    <h3 class="category-title">Huesos Recreativos (Congelados)[cite: 2]</h3>
+    <div class="catalog-grid">
+      <div class="product-card">
+        <div class="product-img-ph">Foto Producto</div>
+        <h4>Brazuelo de Cerdo[cite: 2]</h4>
+        <div class="details">
+          <span><strong>Cantidad:</strong> 2 unidades[cite: 2]</span>
+        </div>
+        <div class="pricing">
+          <span class="p-wholesoles">Mayorista: S/ 12.50[cite: 2]</span>
+          <span class="pvp">S/ 17.50[cite: 2]</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-ph">Foto Producto</div>
+        <h4>Huesos Manzanos (Talla S/M/L)[cite: 2]</h4>
+        <div class="details">
+          <span><strong>Peso:</strong> 500gr a 1000gr aprox[cite: 2].</span>
+        </div>
+        <div class="pricing">
+          <span class="p-wholesoles">Desde: S/ 12.00[cite: 2]</span>
+          <span class="pvp">S/ 17.00 - 22.00[cite: 2]</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-ph">Foto Producto</div>
+        <h4>Patas de Pollo Congeladas[cite: 2]</h4>
+        <div class="details">
+          <span><strong>Cantidad:</strong> 10 unidades[cite: 2]</span>
+        </div>
+        <div class="pricing">
+          <span class="p-wholesoles">Mayorista: S/ 9.50[cite: 2]</span>
+          <span class="pvp">S/ 14.00[cite: 2]</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. LÍNEA COSMÉTICA (LUNA LUNERA) -->
+    <h3 class="category-title">Línea Cosmética (Luna Lunera)[cite: 2]</h3>
+    <div class="catalog-grid">
+      <div class="product-card">
+        <div class="product-img-ph">Foto Producto</div>
+        <h4>Shampoo Sólido Avena y Miel[cite: 2]</h4>
+        <div class="details">
+          <span><strong>Peso:</strong> 90 gr[cite: 2]</span>
+        </div>
+        <div class="pricing">
+          <span class="p-wholesoles">Mayorista: S/ 18.00[cite: 2]</span>
+          <span class="pvp">S/ 25.70[cite: 2]</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-ph">Foto Producto</div>
+        <h4>Shampoo Sólido Romero y Citronela[cite: 2]</h4>
+        <div class="details">
+          <span><strong>Peso:</strong> 90 gr[cite: 2]</span>
+        </div>
+        <div class="pricing">
+          <span class="p-wholesoles">Mayorista: S/ 18.00[cite: 2]</span>
+          <span class="pvp">S/ 25.70[cite: 2]</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-ph">Foto Producto</div>
+        <h4>Crema Humectante para Patitas[cite: 2]</h4>
+        <div class="details">
+          <span><strong>Peso:</strong> 18 gr[cite: 2]</span>
+        </div>
+        <div class="pricing">
+          <span class="p-wholesoles">Mayorista: S/ 13.50[cite: 2]</span>
+          <span class="pvp">S/ 20.00[cite: 2]</span>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img-ph">Foto Producto</div>
+        <h4>Neutralizador de Olores[cite: 2]</h4>
+        <div class="details">
+          <span><strong>Contenido:</strong> 100 ml[cite: 2]</span>
+        </div>
+        <div class="pricing">
+          <span class="p-wholesoles">Mayorista: S/ 15.50[cite: 2]</span>
+          <span class="pvp">S/ 22.00[cite: 2]</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRESENTACIONES PEQUEÑAS -->
+    <h3 class="category-title">Presentaciones Pequeñas[cite: 2]</h3>
+    <div class="catalog-grid">
+      <div class="product-card">
+        <div class="product-img-ph">Foto Producto</div>
+        <h4>Galletas Variadas (50g) / Frida (13g)[cite: 2]</h4>
+        <div class="details">
+          <span>Cordero, Hígado, Vegetales, Grain Free, Riñones, Andinas, Frida[cite: 2]</span>
+        </div>
+        <div class="pricing">
+          <span class="p-wholesoles">Mayorista: S/ 4.00[cite: 2]</span>
+          <span class="pvp">PVS: S/ 7.00[cite: 2]</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
 <section id="combos">
   <div class="wrap">
     <div class="section-head">
-      <h2>Combos del mes</h2>
-      <p>Formas de probar más de una línea a la vez, pensadas para regalar o para consentir sin culpa.</p>
+      <h2>Combos del mes[cite: 1]</h2>
+      <p>Formas de probar más de una línea a la vez, pensadas para regalar o para consentir sin culpa[cite: 1].</p>
     </div>
     <div class="combos-list">
       <div class="combo-row">
         <div class="combo-icon">🎂</div>
         <div class="combo-info">
-          <h3>Cumpleaños Peludo</h3>
-          <p>Galleta artesanal grande + hueso recreativo + tarjeta personalizada con su nombre.</p>
+          <h3>Cumpleaños Peludo[cite: 1]</h3>
+          <p>Galleta artesanal grande + hueso recreativo + tarjeta personalizada con su nombre[cite: 1].</p>
         </div>
         <div class="combo-price">
-          <span class="before">Antes S/ 39</span>
-          <span class="now">S/ 35</span>
+          <span class="before">Antes S/ 39[cite: 1]</span>
+          <span class="now">S/ 35[cite: 1]</span>
         </div>
       </div>
       <div class="combo-row">
         <div class="combo-icon">🐾</div>
         <div class="combo-info">
-          <h3>Familia Completa</h3>
-          <p>Galleta artesanal para tu perro + snack liofilizado Frida la Gata para tu gato.</p>
+          <h3>Familia Completa[cite: 1]</h3>
+          <p>Galleta artesanal para tu perro + snack liofilizado Frida la Gata para tu gato[cite: 1].</p>
         </div>
         <div class="combo-price">
-          <span class="before">Antes S/ 48</span>
-          <span class="now">S/ 40</span>
+          <span class="before">Antes S/ 48[cite: 1]</span>
+          <span class="now">S/ 40[cite: 1]</span>
         </div>
       </div>
       <div class="combo-row">
         <div class="combo-icon">✨</div>
         <div class="combo-info">
-          <h3>Bienvenida</h3>
-          <p>Una galleta grande más una presentación pequeña de otro sabor, para descubrir su favorita.</p>
+          <h3>Bienvenida[cite: 1]</h3>
+          <p>Una galleta grande más una presentación pequeña de otro sabor, para descubrir su favorita[cite: 1].</p>
         </div>
         <div class="combo-price">
-          <span class="before">Antes S/ 29</span>
-          <span class="now">S/ 24</span>
+          <span class="before">Antes S/ 29[cite: 1]</span>
+          <span class="now">S/ 24[cite: 1]</span>
         </div>
       </div>
       <div class="combo-row">
         <div class="combo-icon">🌙</div>
         <div class="combo-info">
-          <h3>Bienestar Luna Lunera</h3>
-          <p>Shampoo sólido + crema para patitas + neutralizador de olores, el ritual completo.</p>
+          <h3>Bienestar Luna Lunera[cite: 1]</h3>
+          <p>Shampoo sólido + crema para patitas + neutralizador de olores, el ritual completo[cite: 1].</p>
         </div>
         <div class="combo-price">
-          <span class="before">Antes S/ 68</span>
-          <span class="now">S/ 58</span>
+          <span class="before">Antes S/ 68[cite: 1]</span>
+          <span class="now">S/ 58[cite: 1]</span>
         </div>
       </div>
     </div>
@@ -456,30 +633,46 @@
 <section id="negocios" class="b2b">
   <div class="wrap">
     <div class="section-head">
-      <h2>Para veterinarias y petshops</h2>
-      <p>Trabajamos con negocios que quieren ofrecer algo distinto a sus clientes, con respaldo y sin arriesgar en la primera compra.</p>
+      <h2>Para veterinarias y petshops[cite: 1]</h2>
+      <p>Trabajamos con negocios que quieren ofrecer algo distinto a sus clientes, con respaldo y sin arriesgar en la primera compra[cite: 1].</p>
     </div>
     <div class="b2b-grid">
       <div class="b2b-item">
         <span class="num">01</span>
-        <h3>Precio mayorista</h3>
-        <p>Desde 12 a 24 unidades por sabor, con precio especial de mayorista y libertad para definir tu propio margen de reventa.</p>
+        <h3>Precio mayorista[cite: 1]</h3>
+        <p>Desde 12 a 24 unidades por sabor, con precio especial de mayorista y libertad para definir tu propio margen de reventa[cite: 1].</p>
       </div>
       <div class="b2b-item">
         <span class="num">02</span>
-        <h3>Stock de prueba</h3>
-        <p>Muestras a mitad de precio para que veas cómo rota cada línea antes de comprometer inventario grande.</p>
+        <h3>Stock de prueba[cite: 1]</h3>
+        <p>Muestras a mitad de precio para que veas cómo rota cada línea antes de comprometer inventario grande[cite: 1].</p>
       </div>
       <div class="b2b-item">
         <span class="num">03</span>
-        <h3>Material de exhibición</h3>
-        <p>Flyers y catálogo listos para tu mostrador, para que tus clientes conozcan todas las líneas de un vistazo.</p>
+        <h3>Material de exhibición[cite: 1]</h3>
+        <p>Flyers y catálogo listos para tu mostrador, para que tus clientes conozcan todas las líneas de un vistazo[cite: 1].</p>
       </div>
       <div class="b2b-item">
         <span class="num">04</span>
-        <h3>Exclusividad por zona</h3>
-        <p>Al inicio, priorizamos un solo punto de venta por distrito, para que tu negocio no compita con el de al lado.</p>
+        <h3>Exclusividad por zona[cite: 1]</h3>
+        <p>Al inicio, priorizamos un solo punto de venta por distrito, para que tu negocio no compita con el de al lado[cite: 1].</p>
       </div>
+    </div>
+
+    <!-- FORMULARIO B2B INTEGRADO -->
+    <div class="b2b-form">
+      <h3>Solicita información de mayorista</h3>
+      <form action="#" method="POST">
+        <div class="form-group">
+          <input type="text" name="nombre" placeholder="Nombre de tu Veterinaria / Petshop" required>
+          <input type="tel" name="telefono" placeholder="Teléfono / WhatsApp" required>
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Correo electrónico" required>
+          <input type="text" name="distrito" placeholder="Distrito / Ubicación" required>
+        </div>
+        <button type="submit" class="btn btn-solid" style="cursor:pointer; border:none;">Enviar consulta</button>
+      </form>
     </div>
   </div>
 </section>
@@ -487,24 +680,48 @@
 <section id="tiendas">
   <div class="wrap">
     <div class="section-head">
-      <h2>Dónde encontrarnos</h2>
-      <p>Si no puedes visitarnos en Lince, estas tiendas ya trabajan con nosotros.</p>
+      <h2>Dónde encontrarnos[cite: 1]</h2>
+      <p>Si no puedes visitarnos en Lince, estas tiendas ya trabajan con nosotros[cite: 1].</p>
     </div>
     <div class="find-list">
-      <span class="find-chip">Superpet</span>
-      <span class="find-chip">Plaza Vea</span>
-      <span class="find-chip">Lumpet</span>
-      <span class="find-chip">Go Pet</span>
+      <span class="find-chip">Superpet[cite: 1]</span>
+      <span class="find-chip">Plaza Vea[cite: 1]</span>
+      <span class="find-chip">Lumpet[cite: 1]</span>
+      <span class="find-chip">Go Pet[cite: 1]</span>
     </div>
     <div class="local-block">
       <div>
-        <h3>Tienda física</h3>
-        <p>Jr. Mariscal Las Heras 658, Lince, Lima.</p>
+        <h3>Tienda física[cite: 1]</h3>
+        <p>Jr. Mariscal Las Heras 658, Lince, Lima[cite: 1].</p>
       </div>
       <div>
-        <h3>Horario de atención</h3>
-        <p>Escríbenos por WhatsApp para coordinar tu visita o tu pedido a domicilio.</p>
+        <h3>Horario de atención[cite: 1]</h3>
+        <p>Escríbenos por WhatsApp para coordinar tu visita o tu pedido a domicilio[cite: 1].</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECCIÓN FAQ INTEGRADA -->
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Preguntas frecuentes</h2>
+      <p>Respuestas rápidas para cuidar a tu mascota como se debe.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>¿Hacen envíos a todo Lima y provincias?</summary>
+        <p>Sí, coordinamos envíos directos a todo Lima Metropolitana y despachos a provincias previa coordinación por WhatsApp[cite: 1].</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cuánto tiempo duran las galletas artesanales?</summary>
+        <p>Al ser libres de conservantes artificiales, tienen una vida útil de 3 a 6 meses en un lugar fresco y seco.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Tienen opciones para mascotas con alergias?</summary>
+        <p>Contamos con la línea Grain Free y recetas específicas para estómagos y pieles sensibles[cite: 1].</p>
+      </details>
     </div>
   </div>
 </section>
@@ -512,19 +729,26 @@
 <footer id="contacto">
   <div class="wrap">
     <div class="contact-top">
-      <h2>¿Hablamos de tu próximo pedido?</h2>
+      <h2>¿Hablamos de tu próximo pedido?[cite: 1]</h2>
       <div class="contact-links">
-        <a href="https://wa.me/51922786607" target="_blank" rel="noopener">+51 922 786 607 — WhatsApp</a>
-        <a href="https://www.instagram.com/galletasdonferminoficial" target="_blank" rel="noopener">@galletasdonferminoficial</a>
-        <a href="#" target="_blank" rel="noopener">Galletas Don Fermín — Facebook</a>
+        <a href="https://wa.me/51922786607" target="_blank" rel="noopener">+51 922 786 607 — WhatsApp[cite: 1, 2]</a>
+        <a href="https://www.instagram.com/galletasdonferminoficial" target="_blank" rel="noopener">@galletasdonferminoficial[cite: 1, 2]</a>
+        <a href="#" target="_blank" rel="noopener">Galletas Don Fermín — Facebook[cite: 1, 2]</a>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Galletas Don Fermín. Jr. Mariscal Las Heras 658, Lince, Lima.</span>
-      <span>Snacks artesanales para perros y gatos.</span>
+      <span>© 2026 Galletas Don Fermín. Jr. Mariscal Las Heras 658, Lince, Lima[cite: 1, 2].</span>
+      <span>Snacks artesanales para perros y gatos[cite: 1, 2].</span>
     </div>
   </div>
 </footer>
+
+<!-- BOTÓN FLOTANTE WHATSAPP -->
+<a href="https://wa.me/51922786607" class="whatsapp-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 32 32">
+    <path d="M16 2a13 13 0 0 0-11.25 19.52L3 29l7.71-1.69A13 13 0 1 0 16 2zm0 23.8a10.8 10.8 0 0 1-5.5-1.5l-.4-.2-4.1.9.9-4-.3-.4A10.8 10.8 0 1 1 16 25.8zm5.9-8.1c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7 0a9 9 0 0 1-2.6-1.6 10 10 0 0 1-1.8-2.2c-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6a.6.6 0 0 0 0-.6c0-.2-.7-1.7-1-2.3s-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4A3.7 3.7 0 0 0 9 12.1a6.4 6.4 0 0 0 1.3 3.4 14.7 14.7 0 0 0 5.6 5c.8.3 1.4.5 1.9.7a4.6 4.6 0 0 0 2.1.1 3.4 3.4 0 0 0 2.3-1.6 2.8 2.8 0 0 0 .2-1.6c-.1-.1-.4-.2-.7-.3z"/>
+  </svg>
+</a>
 
 </body>
 </html>
